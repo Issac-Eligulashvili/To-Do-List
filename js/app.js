@@ -18,10 +18,6 @@ let id = 0;
 
 //get items from local storage
 
-
-let variable = localStorage.getItem('key')
-localStorage.setItem("TODO", JSON.stringify(LIST))
-
 let data = localStorage.getItem("TODO")
 
 if(data) {
@@ -41,6 +37,11 @@ function loadToDo (array) {
         addToDo(item.name, item.id, item.done, item.trash)
     })
 }
+
+clear.addEventListener('click', function() {
+   localStorage.clear();
+    location.reload();
+})
 
 
 
@@ -77,11 +78,10 @@ document.addEventListener("keyup", function(event){
                     trash: false
                 }
             );
-
-            input.value = "";
+            localStorage.setItem("TODO", JSON.stringify(LIST))
             id++
         }
-        
+        input.value = "";
     }
 })
 
@@ -105,5 +105,7 @@ list.addEventListener ("click", function(event) {
     } else if (elementJOB =='delete') {
         removeToDo(element);
     }
+
+    localStorage.setItem("TODO", JSON.stringify(LIST))
 })
 
