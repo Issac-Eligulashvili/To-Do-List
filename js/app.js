@@ -13,8 +13,18 @@ function addToDo(toDo) {
 
 const position = "beforeend";
 
-list.insertAdjacentHTML(positiion, text)
+list.insertAdjacentHTML(position, text)
 
 }
 
-addToDo("Drink Coffee");
+addToDo("Drink Coffee")
+
+document.addEventListener("keyup", function(event){
+    if(event.keyCode === 13) {
+        const toDo = input.value;
+        if(toDo) {
+            addToDo(toDo)
+        }
+        input.value = ""
+    }
+})
