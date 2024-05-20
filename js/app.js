@@ -70,5 +70,7 @@ list.addEventListener ("click", function(event) {
     } else if (elementJOB =='delete') {
         removeToDo(element);
     }
-
 })
+
+let variable = localStorage.getItem('key')
+localStorage.setItem("TODO", JSON.stringify(LIST))
