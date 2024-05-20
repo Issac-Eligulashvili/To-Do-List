@@ -2,7 +2,7 @@ const clear = document.querySelector(".clear")
 
 const dateElement = document.getElementById('date')
 const list = document.getElementById('list')
-const input = document.getElementById('input')
+const input = document.getElementById('item')
 const CHECK = 'fa-check-circle'
 const UNCHECK = 'fa-circle-thin'
 const LINE_THROUGH = 'lineThrough'
@@ -61,3 +61,14 @@ function removeToDo(element ) {
     element.parentNode.parentNode.removeChild(element.parentNode)
     LIST[element.id].trash = true;
 }
+
+list.addEventListener ("click", function(event) {
+    let element = event.target;
+    const elementJOB = event.target.attributes.job.value
+    if (elementJOB == 'complete') {
+        ccompleteToDo(element);
+    } else if (elementJOB =='delete') {
+        removeToDo(element);
+    }
+
+})
