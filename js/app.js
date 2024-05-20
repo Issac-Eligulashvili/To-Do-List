@@ -29,8 +29,6 @@ list.insertAdjacentHTML(position, text)
 
 }
 
-addToDo("Drink Coffee")
-
 document.addEventListener("keyup", function(event){
     if(event.keyCode === 13) {
         const toDo = input.value;
@@ -57,4 +55,9 @@ function completeToDo(element) {
     element.classList.toggle(UNCHECK)
     element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH )
     LIST[element.id].done = LIST[element.id].done ? false : true
+}
+
+function removeToDo(element ) {
+    element.parentNode.parentNode.removeChild(element.parentNode)
+    LIST[element.id].trash = true;
 }
